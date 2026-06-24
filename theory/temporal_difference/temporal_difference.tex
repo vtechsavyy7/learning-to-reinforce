@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\begin{document}
+
+\section{Temporal Difference Basics}
+\quad The central idea behind temporal difference (TD) learning is to update value estimates immediately after observing each transition, 
+rather than waiting until the end of an episode as in Monte Carlo methods. This is achieved by using the observed reward and the estimated value of the next state to update the 
+value estimate of the current state. 
+
+The simplest form of TD learning is the TD(0) algorithm, which updates the value estimate for a state \( s \) at time step \( t \) using the following update rule:
+\begin{equation}
+V(s) \leftarrow V(s) + \alpha [R_{t+1} + \gamma V(S_{t+1}) - V(s)]
+\end{equation}
+where \( \alpha \) is the learning rate, \( R_{t+1} \) is the reward received after taking action \( A_t \) in state \( S_t \), \( S_{t+1} \) is the next state, 
+and \( \gamma \) is the discount factor.
+
+In essence, we are observing how different the current value estimate \( V(s) \) is from the target value \( R_{t+1} + \gamma V(S_{t+1}) \), which is based on the observed reward and the estimated value of the next state.
+This difference is known as the TD error, and it serves as a signal for how much to update the value estimate for the current state.
+
+\section{On-policy TD Control: SARSA}
+
+\section{Off-policy TD Control: Q-learning}
+\quad Q-learning is an off-policy TD control algorithm that learns the optimal action-value function \( Q^*(s, a) \) directly, without following the current policy. 
+The update
+
+
+\section{n-step Bootstrapping}
+\quad Monte Carl methods use the returns observed for a state at the end of an episode before updating its value estimate, while TD methods update the value estimates immediately after observing each transition.
+In TD methods, we use the observed reward and the estimated value of the next state to update the value estimate of the current state. The estimate of the value at the next state serves as a proxy 
+for the return that we would observe at the end of the episode, which is why TD methods are often referred to as "bootstrapping" methods.
+
+n-step bootstrapping is a generalization of TD learning that allows us to use the observed rewards and estimated values of multiple future states to update the value estimate of the current state.
+
+\end{document}
